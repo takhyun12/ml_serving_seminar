@@ -106,7 +106,7 @@ image resizing, video encoding 등의 작업은 worker thread로 할당하는 �
 
 ###
 
-<img src="figures/figure-9.PNG" width="800" alt=""/>
+<img src="figures/figure-9.png" width="800" alt=""/>
 
 **[그림 7]** 다양한 백엔드 서버의 벤치마크 결과
 
@@ -119,7 +119,7 @@ FastAPI의 성능의 측면에서 node.js보다 훨씬 앞서고, Golang과 거�
 
 ###
 
-<img src="figures/figure-10.PNG" width="800" alt=""/>
+<img src="figures/figure-10.png" width="800" alt=""/>
 
 **[그림 8]** FastAPI 프레임워크의 구조
 
@@ -134,7 +134,7 @@ FastAPI의 구조는 [그림 8]과 같이 Starlette > Uvicorn > Uvloop로 이어
 ###
 
 <img src="figures/figure-8.PNG" width="914" alt=""/>
-<img src="figures/figure-10.PNG" width="800" alt=""/>
+<img src="figures/figure-10.png" width="800" alt=""/>
 
 **[그림 9]** node.js와 fastapi 구조의 비교 도표
 
@@ -150,7 +150,7 @@ FastAPI의 구조는 [그림 8]과 같이 Starlette > Uvicorn > Uvloop로 이어
 
 ###
 
-<img src="figures/figure-11.PNG" width="800" alt=""/>
+<img src="figures/figure-11.png" width="800" alt=""/>
 
 **[그림 10]** FastAPI 런타임의 작업 할당 구조
 
@@ -163,7 +163,7 @@ FastAPI에서는 [그림 10]과 같이 worker를 배정하는 과정에서 multi
 
 ###
 
-<img src="figures/figure-12.PNG" width="800" alt=""/>
+<img src="figures/figure-12.png" width="800" alt=""/>
 
 **[그림 11]** GIL(Global Interpreter Lock)
 
@@ -238,7 +238,7 @@ reference count : 2
 
 ###
 
-<img src="figures/figure-13.PNG" width="800" alt=""/>
+<img src="figures/figure-13.png" width="800" alt=""/>
 
 **[그림 12]** ML 서빙 최적화 포인트
 
