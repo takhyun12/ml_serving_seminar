@@ -20,7 +20,7 @@ Node.js는 Javascript 기반의 런타임 프레임워크이며, 현재 라스�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/b3a2d7df-54f0-4404-945a-1541b3fe84a3" width="800" alt=""/>
+<img src="figures/figure-1.PNG" width="800" alt=""/>
 
 **[그림 1]** Node.js 런타임 환경의 동작 구조
 
@@ -31,8 +31,8 @@ Node.js는 Javascript 기반의 런타임 프레임워크이며, 현재 라스�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/57f3fff4-6b24-42c8-8f3b-41238cc57148" width="800" alt=""/>
-<img src="https://media.oss.navercorp.com/user/37614/files/9b7ca60f-a560-4f7e-bdf2-7b196fd163c0" width="800" alt=""/>
+<img src="figures/figure-2.PNG" width="800" alt=""/>
+<img src="figures/figure-3.PNG" width="800" alt=""/>
 
 **[그림 2]** Node.js 런타임 환경에서의 call stack의 동작 구조
 
@@ -48,7 +48,7 @@ Node.js는 Javascript 기반의 런타임 프레임워크이며, 현재 라스�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/3e252ea9-6357-44d0-ba48-4d1b32da9209" width="800" alt=""/>
+<img src="figures/figure-4.PNG" width="800" alt=""/>
 
 **[그림 3]** Node APIs를 사용하는 경우 Non-blocking I/O를 설명하기 위한 그림
 
@@ -61,7 +61,7 @@ node.js에서 기본적으로 제공하는 함수는 node.js 커뮤니티에서�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/60fe8d88-8c05-4f62-8440-aeed31ea093f" width="800" alt=""/>
+<img src="figures/figure-5.PNG" width="800" alt=""/>
 
 **[그림 4]** `node.js API`가 실행되는 구조
 
@@ -75,8 +75,8 @@ node.js에서 기본적으로 제공하는 함수는 node.js 커뮤니티에서�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/6de5462d-547c-4e6c-80d5-139955ed2834" width="800" alt=""/>
-<img src="https://media.oss.navercorp.com/user/37614/files/146611a8-53fa-4b04-a3ef-846f4a066774" width="800" alt=""/>
+<img src="figures/figure-6.PNG" width="800" alt=""/>
+<img src="figures/figure-7.PNG" width="800" alt=""/>
 
 **[그림 5]** `node.js API`와 `event loop`의 동작구조
 
@@ -87,7 +87,7 @@ call stack이 비어 있는 시점에서 node.js의 event loop에 의해서 call
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/874c45bc-4716-4ddd-8703-8b18c71c35e7" width="800" alt=""/>
+<img src="figures/figure-8.PNG" width="800" alt=""/>
 
 **[그림 6]** node.js 런타임 프레임워크에 대한 요약
 
@@ -106,7 +106,7 @@ image resizing, video encoding 등의 작업은 worker thread로 할당하는 �
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/60a1ee12-eb0e-4c27-ad54-1de17fe01227" width="800" alt=""/>
+<img src="figures/figure-9.PNG" width="800" alt=""/>
 
 **[그림 7]** 다양한 백엔드 서버의 벤치마크 결과
 
@@ -119,7 +119,7 @@ FastAPI의 성능의 측면에서 node.js보다 훨씬 앞서고, Golang과 거�
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/a26246ba-361f-466b-be95-83872b0251c2" width="800" alt=""/>
+<img src="figures/figure-10.PNG" width="800" alt=""/>
 
 **[그림 8]** FastAPI 프레임워크의 구조
 
@@ -133,8 +133,8 @@ FastAPI의 구조는 [그림 8]과 같이 Starlette > Uvicorn > Uvloop로 이어
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/874c45bc-4716-4ddd-8703-8b18c71c35e7" width="914" alt=""/>
-<img src="https://media.oss.navercorp.com/user/37614/files/a26246ba-361f-466b-be95-83872b0251c2" width="800" alt=""/>
+<img src="figures/figure-8.PNG" width="914" alt=""/>
+<img src="figures/figure-10.PNG" width="800" alt=""/>
 
 **[그림 9]** node.js와 fastapi 구조의 비교 도표
 
@@ -150,7 +150,7 @@ FastAPI의 구조는 [그림 8]과 같이 Starlette > Uvicorn > Uvloop로 이어
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/7b5c74cd-26c3-4f4d-b05a-37928a5c9377" width="800" alt=""/>
+<img src="figures/figure-11.PNG" width="800" alt=""/>
 
 **[그림 10]** FastAPI 런타임의 작업 할당 구조
 
@@ -163,7 +163,7 @@ FastAPI에서는 [그림 10]과 같이 worker를 배정하는 과정에서 multi
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/a8f82cac-5f45-459f-ac65-48ef25ff27e3" width="800" alt=""/>
+<img src="figures/figure-12.PNG" width="800" alt=""/>
 
 **[그림 11]** GIL(Global Interpreter Lock)
 
@@ -238,7 +238,7 @@ reference count : 2
 
 ###
 
-<img src="https://media.oss.navercorp.com/user/37614/files/330604f7-d106-443e-9b78-373fc4c62fc5" width="800" alt=""/>
+<img src="figures/figure-13.PNG" width="800" alt=""/>
 
 **[그림 12]** ML 서빙 최적화 포인트
 
