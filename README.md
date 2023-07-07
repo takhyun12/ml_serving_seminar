@@ -1,6 +1,6 @@
 # 고성능 ML 서빙 최적화
 
-현재 라스코에서 운영중인 AI 백엔드 서버들은 Python을 기반으로 구축되어 있습니다.
+대부분의 AI 백엔드 서버들은 Python을 기반으로 구축되어 있습니다.
 
 이러한 Python 기반의 시스템은 통상적으로 다른 언어에 비해 실행 속도가 느리다고 알려져 있는데요, 
 본 세미나에서는 이러한 Python 기반의 시스템에 대해 자세히 알아보고 그 과정에서 일부 잘못된 오해와 편견 그리고 성능을 개선하기 위한 다양한 방법을 고찰하고자 합니다.
@@ -97,7 +97,7 @@ call stack이 비어 있는 시점에서 node.js의 event loop에 의해서 call
 즉, single thread는 작고 가벼운 일만을 수행하기 때문에 I/O의 측면에서는 매우 효율적이며 이벤트 단위로 처리하기 때문에 event-driven 방식이라고도 합니다.
 
 node.js 개발자들은 이러한 특징에 따라 single thread로 동작하는 event loop에 heavy calculation을 할당하지 않으며, 
-image resizing, video encoding 등의 작업은 worker thread로 할당하는 방식으로 시스템을 최적화하고 있습니다.
+image resizing, video encoding 등의 작업은 worker thread로 할당하는 방식으로 시스템을 구성하고 있습니다.
 
 ###
 
@@ -247,7 +247,7 @@ reference count : 2
 지금까지는 배경지식의 차원에서 FastAPI 구조에 대해서 가볍게 살펴보았는데요,
 그렇다면 우리가 ML 서비스를 경량화하고 최적화해야 하기 위해 집중해야 부분은 어디일지 살펴보도록 하곘습니다.
 
-[그림 12]는 Lasco.AI 처럼 ML 서비스 아키텍처에서 최적화 할 수 있는 포인트를 표현한 그림입니다. 
+[그림 12]는 ML 서비스 아키텍처에서 최적화 할 수 있는 포인트를 표현한 그림입니다. 
 
 그림을 살펴보면, 우선적으로는 1번 사항과 같이 `architecture-level`에서의 최적화를 할 수 있습니다. 
 이는, API Gateway와 같은 추가적인 솔루션을 도입하는 개념으로 Load balancing과 같은 큰 범위의 최적화를 의미합니다.
@@ -264,7 +264,7 @@ FastAPI 등 인프라를 구성하는 코드에 다양한 최적화 효과를 �
 
 ### Infra-level 에서의 최적화
 
-#### 1. `pydantic` 라이브러리의 사용을 줄이자! (하이퍼커넥트 게시글 참조)
+#### 1. `pydantic` 라이브러리의 사용을 줄이자! (Reference: 하이퍼커넥트 테크 블로그)
 
 ```python
 from pydantic import BaseModel, Field
@@ -282,7 +282,7 @@ class Message(BaseModel):
 
 ###
 
-현재 Lasco AI에서는 FastAPI를 사용함에 있어 `pydantic`의 `BaseModel`을 통해 API interface를 정의하고 있습니다. 
+보편적으로로 FastAPI를 사용함에 있어 `pydantic`의 `BaseModel`을 통해 API interface를 정의하고 있습니다. 
 `pydantic`은 validation check(type check)와 parsing을 매우 편리하게 하는 라이브러리로 대부분의 Fastapi 샘플 코드에서 사용하고 있습니다.
 
 다만, 이러한 `pydantic`은 높은 사용성에 반비례하게 내부 로직이 Pure Python으로 구성되어 있어서 매우 느리다는 단점이 있습니다.
@@ -318,7 +318,7 @@ pydantic: 12.29ms
 
 결과를 보면, 위 코드는 단순히 객체만 수백개를 반복적으로 생성했을 뿐인데 12ms라는 시간이 소요되는 것을 확인할 수 있습니다.
 
-그렇다면 `pydantic`이 아닌 바닐라 class로 객체를 생성하면 어떨까요?
+그렇다면 `pydantic`이 아닌 바닐라 class로 객체를 생성하면 어떠한 결과를 보일까요?
 
 ```python
 import timeit
@@ -638,7 +638,6 @@ prompt = "ghibli style, a fantasy landscape with castles"
 `torch.compile`을 통해 Pytorch 코드로 구성된 모델을 JIT 컴파일하여 실행속도를 최적화할 수 있습니다.
 `diffusers`에서도 이러한 `torch.compile`과 호환이 되기 때문에 이러한 최적화 기술을 쉽게 적용해 볼 수 있습니다.
 
-현재 이러한 compile 기술들이 적용되어 있지 않은데, 기회가 된다면 실제 Lasco.AI에 적용하여 전/후를 비교해 보는 것도 좋을 것 같습니다.
 
 ###
 
